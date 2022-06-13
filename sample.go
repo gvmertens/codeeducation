@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-        fmt.Println("Print from the Go program")
+        fmt.Println("Code.education Rocks!")
         fmt.Println(os.Getenv("TEST_ENV"))
 }

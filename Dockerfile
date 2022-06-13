@@ -1,11 +1,9 @@
 FROM golang:1.16-alpine as build
-WORKDIR /app
-ADD . /app
-RUN go run sample.go /app
+COPY ./sample.go /go/sample.go
+RUN go build sample.go
 
-FROM alpine:3.11.3
-COPY --from=build /app /app
+FROM scratch
+COPY --from=build /go/sample /app/sample
 
-ENTRYPOINT [“/app”]
-
+CMD ["/app/sample"]
 
